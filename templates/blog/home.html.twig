@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1> bienvenue </h1>
+    {% if age > 18 %} 
+        <p> tu es majeur </p> 
+    {% else %} 
+        <p> tu es mineur </p> 
+    {% endif %}
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/blog';">Page d'accueil</button>
+
+{% endblock %}
