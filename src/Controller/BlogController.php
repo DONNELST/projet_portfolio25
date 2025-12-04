@@ -21,10 +21,10 @@ final class BlogController extends AbstractController
         return $this->render('blog/competence.html.twig', [ 
             'title' => 'Bienvenue']);
     }
-    #[Route('/blog/competence2', name: 'app_competence2',)]
+    /*#[Route('/blog/competence2', name: 'app_competence2',)] /* le réintégré lorsque c'est utile 
     public function competence2(): Response 
     {
         return $this->render('blog/competence2.html.twig', [ 
             'title' => 'Bienvenue']);
-    }
+    }*/
 }
