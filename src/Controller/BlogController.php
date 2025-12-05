@@ -27,4 +27,10 @@ final class BlogController extends AbstractController
         return $this->render('blog/competence2.html.twig', [ 
             'title' => 'Bienvenue']);
     }*/
+    #[Route('/blog/aboutme', name: 'app_aboutme',)]
+    public function aboutme(): Response 
+    {
+        return $this->render('blog/aboutme.html.twig', [ 
+            'title' => 'Bienvenue']);
+    }
 }

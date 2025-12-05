@@ -1,7 +1,23 @@
 body {
-    background-color: rgb(255, 255, 227);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255,255,255);
+    font-weight : bold;
 }
 p {
     padding-left: 30px;
     font-size: 18px;
+    color: rgb(255,255,255);
+    font-weight : bold;
+}
+h1 {
+    padding-left: 15px;
+    padding-top: 10px;
+    color: rgb(255,255,255);
+    font-weight : bold;
+}
+
+h2 {
+    padding-left: 15px;
+    color: rgb(255,255,255);
+    font-weight : bold;
 }
