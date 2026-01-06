@@ -32,5 +32,13 @@ final class BlogController extends AbstractController
     {
         return $this->render('blog/aboutme.html.twig', [ 
             'title' => 'Bienvenue']);
+        
+    }
+        #[Route('/blog/formulaire', name: 'app_formulaire',)]
+    public function formulaire(): Response 
+    {
+        return $this->render('blog/formulaire.html.twig', [ 
+            'title' => 'Bienvenue']);
+        
     }
 }

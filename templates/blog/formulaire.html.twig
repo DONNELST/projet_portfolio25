@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+form {
+    background-color: #000; /* Fond du formulaire */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.19); /* Ombre légère pour le formulaire */
+    width: 35%; /* Largeur du formulaire */
+    text-align: center; /* Centrer le texte à l'intérieur du formulaire */
+    color: white; /* Couleur du texte dans le formulaire */
+    margin: 0 auto; /* Cela centre le formulaire sur la page horizontalement */
+}
+        .form-check-input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ccc; /* Couleur de la bordure du bouton radio */
+            background-color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        /* Lorsque le bouton radio est coché, change la couleur en gris */
+        .form-check-input:checked {
+            background-color: #888; /* Gris */
+            border-color: #888; /* Bordure en gris */
+        }
+
+        /* Lorsque le bouton est disabled (désactivé), le bouton devient gris clair */
+        .form-check-input:disabled {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+        }
+
+        /* Créer l'effet de cercle à l'intérieur du bouton radio */
+        .form-check-input:checked::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white; /* Couleur du cercle à l'intérieur du bouton */
+        }
+    </style>
+<form>
+  <fieldset>
+    <legend> Afin de télecharger mon CV au format PDF, veuillez remplire le formulaire ci-dessous.</legend>
+    <div>
+      <label for="exampleInputEmail1" class="form-label mt-4">Adresse Mail</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrez votre email">
+      <small id="emailHelp" class="form-text text-muted">Je ne partagerais pas votre adresse Mail avec d'autres personnes ou institutions.</small>
+    </div>
+    <div>
+      <label for="inputTelephone1" class="form-label mt-4">Numéro de téléphone</label>
+<input type="tel" class="form-control" id="inputTelephone1" name="telephone" placeholder="Entrez votre numéro de téléphone" autocomplete="off" required>
+    </div>
+    <div>
+      <label for="exampleSelect1" class="form-label mt-4">Qui êtes vous ?</label>
+      <select class="form-select" id="exampleSelect1">
+        <option>Professionel</option>
+        <option>Particulier</option>
+        <option>Autre</option>
+      </select>
+    </div>
+    <div>
+      <label for="exampleTextarea" class="form-label mt-4">Si autre, precisez : </label>
+      <textarea class="form-control" id="exampleTextarea" rows="1"></textarea>
+    </div>
+
+    
+    
+
+
+    <fieldset>
+      <legend class="mt-4">Avis : </legend>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+        <label class="form-check-label" for="optionsRadios1">
+          Je suis intéressé par votre profile.
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        <label class="form-check-label" for="optionsRadios2">
+          Je suis intéressé par votre profile, mais je pense avoir des profiles plus adapté.
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios3" value="option3" >
+        <label class="form-check-label" for="optionsRadios3">
+          Votre profile ne correspond pas à mes/nos attentes.
+        </label>
+      </div>
+    </fieldset>
+    <div>
+      <label for="formFile" class="form-label mt-4">Si vous souhaitez joindre un quelconque document.</label>
+      <input class="form-control" type="file" id="formFile">
+    </div>
+    </fieldset>
+    
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+{% endblock %}

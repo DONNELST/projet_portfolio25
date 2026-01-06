@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        
         <meta charset="UTF-8">
         <title>{% block title %}e-Portfolio{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
@@ -13,12 +13,69 @@
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
+        <style>
+        
+          #backButton {
+              position: fixed;
+              bottom: 40px;
+              right: 40px;
+              padding: 10px 20px;
+              font-size: 2rem;
+              background-color:rgb(100, 175, 255);
+              color: black;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+        }
+
+          #backButton:hover {
+              background-color: #0056b3;
+        }
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Utilise flexbox pour disposer les éléments en colonne */
+}
+
+/* La section main doit prendre tout l'espace restant */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Si tu veux que le footer soit toujours en bas, même sur les pages courtes */
+footer {
+    margin-top: auto; /* Pousse le footer vers le bas */
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+/* Optionnel : Style du footer */
+footer p {
+    margin: 0;
+}
+
+a {
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+        </style>
+
     </head>
     <body>
 
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,16 +92,28 @@
         <li class="nav-item">
           <a class="nav-link" href="http://127.0.0.1:8000/blog/aboutme">About me</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/blog/formulaire">Formulaire</a>
+        </li>
       </ul>
-    
+
         </div>
         </div>
     </nav>
+    <button id="backButton">Retour</button>
+
+    <script>
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.history.back();  // Retourne à la page précédente
+        });
+    </script>
         {% block body %}{% endblock %}
         
-
+    <footer>
+        <div class="footer-content">
+            <p>&copy; {{ "now"|date("Y") }} e-portofolio - Tous droits réservés<br><a class="nav-link active" href="http://127.0.0.1:8000/blog/formulaire">Mon CV</a></p>
+        </div>
+    </footer>
     </body>
-
-
-    
+ 
 </html>
