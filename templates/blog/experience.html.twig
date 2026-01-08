@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    .experiences-container {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .experiences-container h1 {
+        font-size: clamp(3rem, 8vw, 5rem);
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .experience-card {
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .experience-image {
+        max-width: 200px;
+        max-height: 150px;
+        margin-left: auto; /* pousser l'image à droite */
+        border-radius: 5px;
+    }
+
+    .experience-content {
+        flex: 1;
+    }
+
+    .experience-title {
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .experience-description {
+        font-size: clamp(1rem, 1vw, 1.25rem);
+        line-height: 1.6;
+    }
+
+    /* Responsive pour mobile */
+    @media (max-width: 768px) {
+        .experience-card {
+            flex-direction: column;
+        }
+
+        .experience-image {
+            margin: 10px 0 0 0;
+            max-width: 100%;
+            max-height: 200px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="experiences-container">
+    <h1>Mes expériences professionnelles</h1>
+
+    <div class="experience-card">
+        <div class="experience-content">
+            <div class="experience-title">Stage d'observation - Alstom</div>
+            <div class="experience-description">
+               J'ai pu suivre le directeur informatique du site d'Alstom Le Creusot lors de mon stage d'observation de 3ème, ce qui m'a permis surtout d'acquérir une bonne compréhension du fonctionnement, de l'organisation d'une entreprise 
+               ainsi que les différents services, leurs relations et leurs façons de travailler.
+            </div>
+        </div>
+        <img src="/images/jpg_44-2.jpg" alt="Alstom" class="experience-image">
+    </div>
+</div>
+{% endblock %}

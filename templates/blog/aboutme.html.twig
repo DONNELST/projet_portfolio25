@@ -1,38 +1,47 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            text-align: center;
+            margin: 0 0 20px 0;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin: 0 0 40px 0;
+        }
+
+        .about-me p {
+            margin: 40px auto; 
+            line-height: 1.8;
+            font-size: clamp(1rem, 1vw, 1.5rem);
+            max-width: 70%; 
+            padding: 0 20px;
+        }
+
+        .about-me em {
+            font-style: italic;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
-<style>
+<div class="about-me">
+    <h1>À propos de moi</h1>
+    <h2>Lucas Donne</h2>
 
+    <p>Bonjour, je m'appelle Lucas et j'ai 18 ans. Actuellement en formation en BUT Réseaux et Télécommunications, je suis passionné par l'informatique, et plus particulièrement par la cybersécurité. Depuis toujours, j’ai un grand intérêt pour les nouvelles technologies et leur impact sur notre quotidien.</p>
 
-    h1 {
-        font-size: clamp(3rem, 8vw, 6rem);
-        text-align: center;
-        margin: 0;
-    }
+    <p>Mon intérêt pour l’informatique est très large : du développement aux réseaux, en passant par la gestion des systèmes. Je suis curieux et toujours désireux de me tenir informé des dernières innovations dans ces domaines.</p>
 
-    h2 {
-        font-size: clamp(2rem, 4vw, 3rem);
-        text-align: center;
-        margin: 0;
-    }
+    <p>Je suis à la recherche d'une alternance pour développer mes compétences professionnelles, appliquer mes connaissances acquises et participer activement à des projets en cybersécurité. En parallèle, j’aspire à explorer d'autres domaines technologiques et à enrichir mes compétences tout au long de mon parcours.</p>
 
+    <p>Dynamique, persévérant et prêt à relever des défis, je cherche à intégrer un environnement de travail stimulant où je pourrai continuer à apprendre et contribuer à des projets ambitieux.</p>
 
-p {
-        margin: 40px 0;  /* Augmenter l'espacement vertical entre les paragraphes */
-        line-height: 1.8;  /* Espacement entre les lignes de texte */
-        font-size: clamp(1rem, 1vw, 1.5rem);  /* Taille de police flexible qui s'adapte à la taille de l'écran */
-        max-width: 70%;  /* Limiter la largeur des paragraphes à 80% */
-        margin-left: auto;  /* Centre les paragraphes horizontalement */
-        margin-right: auto;  /* Centre les paragraphes horizontalement */
-        padding: 0 20px;  /* Ajoute de l'espace à gauche et à droite du texte */
-    }
-</style>
-
-<h1> À propos de moi </h1>
-<h2> PRENOM </h2>
-    <p>>Bonjour, je m'appelle Lucas et j'ai 18 ans. Actuellement en formation en BUT Réseaux et Télécommunications, je suis passionné par l'informatique, et plus particulièrement par la cybersécurité. Depuis toujours, j’ai un grand intérêt pour les nouvelles technologies et leur impact sur notre quotidien.</p>
-    <p>>Mon intérêt pour l’informatique est très large : du développement aux réseaux, en passant par la gestion des systèmes. Je suis curieux et toujours désireux de me tenir informé des dernières innovations dans ces domaines.</p>
-    <p>>Je suis à la recherche d'une alternance pour développer mes compétences professionnelles, appliquer mes connaissances acquises et participer activement à des projets en cybersécurité. En parallèle, j’aspire à explorer d'autres domaines technologiques et à enrichir mes compétences tout au long de mon parcours.</p>
-    <p>>Dynamique, persévérant et prêt à relever des défis, je cherche à intégrer un environnement de travail stimulant où je pourrai continuer à apprendre et contribuer à des projets ambitieux.</p>
-    <p><em>>Si vous êtes à la recherche d’un étudiant motivé et prêt à s’investir, n’hésitez pas à me contacter !</em></p>
-
+    <p><em>Si vous êtes à la recherche d’un étudiant motivé et prêt à s’investir, n’hésitez pas à me contacter !</em></p>
+</div>
 {% endblock %}

@@ -1,16 +1,27 @@
 {% extends 'base.html.twig' %}
-{% block body %}
-<style>
-form {
-    background-color: #000; /* Fond du formulaire */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.19); /* Ombre légère pour le formulaire */
-    width: 35%; /* Largeur du formulaire */
-    text-align: center; /* Centrer le texte à l'intérieur du formulaire */
-    color: white; /* Couleur du texte dans le formulaire */
-    margin: 0 auto; /* Cela centre le formulaire sur la page horizontalement */
-}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        /* Formulaire centré et responsive */
+        .form-container {
+            background-color: #000;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.19);
+            max-width: 500px;
+            width: 90%; /* Largeur adaptative */
+            margin: 50px auto;
+            color: white;
+        }
+
+        /* Titres fieldset */
+        fieldset legend {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Radio custom */
         .form-check-input {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -18,25 +29,17 @@ form {
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            border: 2px solid #ccc; /* Couleur de la bordure du bouton radio */
+            border: 2px solid #ccc;
             background-color: white;
             position: relative;
             transition: all 0.3s ease;
         }
 
-        /* Lorsque le bouton radio est coché, change la couleur en gris */
         .form-check-input:checked {
-            background-color: #888; /* Gris */
-            border-color: #888; /* Bordure en gris */
+            background-color: #888;
+            border-color: #888;
         }
 
-        /* Lorsque le bouton est disabled (désactivé), le bouton devient gris clair */
-        .form-check-input:disabled {
-            background-color: #f0f0f0;
-            border-color: #ccc;
-        }
-
-        /* Créer l'effet de cercle à l'intérieur du bouton radio */
         .form-check-input:checked::before {
             content: '';
             position: absolute;
@@ -45,67 +48,82 @@ form {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color: white; /* Couleur du cercle à l'intérieur du bouton */
+            background-color: white;
+        }
+
+        .form-check-input:disabled {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+        }
+
+        /* Ajout d'un peu d'espacement entre radios */
+        .form-check {
+            margin-top: 10px;
         }
     </style>
-<form>
-  <fieldset>
-    <legend> Afin de télecharger mon CV au format PDF, veuillez remplire le formulaire ci-dessous.</legend>
-    <div>
-      <label for="exampleInputEmail1" class="form-label mt-4">Adresse Mail</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrez votre email">
-      <small id="emailHelp" class="form-text text-muted">Je ne partagerais pas votre adresse Mail avec d'autres personnes ou institutions.</small>
-    </div>
-    <div>
-      <label for="inputTelephone1" class="form-label mt-4">Numéro de téléphone</label>
-<input type="tel" class="form-control" id="inputTelephone1" name="telephone" placeholder="Entrez votre numéro de téléphone" autocomplete="off" required>
-    </div>
-    <div>
-      <label for="exampleSelect1" class="form-label mt-4">Qui êtes vous ?</label>
-      <select class="form-select" id="exampleSelect1">
-        <option>Professionel</option>
-        <option>Particulier</option>
-        <option>Autre</option>
-      </select>
-    </div>
-    <div>
-      <label for="exampleTextarea" class="form-label mt-4">Si autre, precisez : </label>
-      <textarea class="form-control" id="exampleTextarea" rows="1"></textarea>
-    </div>
+{% endblock %}
 
-    
-    
+{% block body %}
+<div class="form-container">
+    <form method="post" >
+        <fieldset>
+            <legend>Afin de télécharger mon CV au format PDF, veuillez remplir le formulaire ci-dessous :</legend>
 
+            <div class="mb-3">
+                <label for="email" class="form-label">Adresse Mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email" required>
+                <small class="form-text text-muted">Je ne partagerai pas votre adresse Mail avec d'autres personnes ou institutions.</small>
+            </div>
 
-    <fieldset>
-      <legend class="mt-4">Avis : </legend>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-        <label class="form-check-label" for="optionsRadios1">
-          Je suis intéressé par votre profile.
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-        <label class="form-check-label" for="optionsRadios2">
-          Je suis intéressé par votre profile, mais je pense avoir des profiles plus adapté.
-        </label>
-      </div>
-      <div class="form-check disabled">
-        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios3" value="option3" >
-        <label class="form-check-label" for="optionsRadios3">
-          Votre profile ne correspond pas à mes/nos attentes.
-        </label>
-      </div>
-    </fieldset>
-    <div>
-      <label for="formFile" class="form-label mt-4">Si vous souhaitez joindre un quelconque document.</label>
-      <input class="form-control" type="file" id="formFile">
-    </div>
-    </fieldset>
-    
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </fieldset>
-</form>
+            <div class="mb-3">
+                <label for="telephone" class="form-label">Numéro de téléphone</label>
+                <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Entrez votre numéro de téléphone" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="profil" class="form-label">Qui êtes-vous ?</label>
+                <select class="form-select" id="profil" name="profil">
+                    <option>Professionnel</option>
+                    <option>Particulier</option>
+                    <option>Autre</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="autre" class="form-label">Si autre, précisez :</label>
+                <textarea class="form-control" id="autre" name="autre" rows="1"></textarea>
+            </div>
+
+            <fieldset class="mb-3">
+                <legend>Avis :</legend>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="avis" id="avis1" value="interesse" checked>
+                    <label class="form-check-label" for="avis1">
+                        Je suis intéressé par votre profil.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="avis" id="avis2" value="autres_profils">
+                    <label class="form-check-label" for="avis2">
+                        Je suis intéressé par votre profil, mais je pense avoir des profils plus adaptés.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="avis" id="avis3" value="non_correspond">
+                    <label class="form-check-label" for="avis3">
+                        Votre profil ne correspond pas à mes/nos attentes.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="avis" id="avis4" value="autre">
+                    <label class="form-check-label" for="avis4">
+                        Autre
+                    </label>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-primary">Envoyer et Télécharger le CV</button>
+        </fieldset>
+    </form>
+</div>
 {% endblock %}

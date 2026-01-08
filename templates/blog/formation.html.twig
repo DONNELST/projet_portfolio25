@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    .formations-container {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .formations-container h1 {
+        font-size: clamp(3rem, 8vw, 5rem);
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .formation-card {
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .formation-image {
+        max-width: 150px;
+        max-height: 150px;
+        margin-left: auto; /* pousse l'image à droite */
+        border-radius: 5px;
+    }
+
+    .formation-content {
+        flex: 1;
+    }
+
+    .formation-title {
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .formation-period {
+        font-size: clamp(1rem, 1vw, 1.1rem);
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .formation-description {
+        font-size: clamp(1rem, 1vw, 1.25rem);
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    /* Responsive pour mobile */
+    @media (max-width: 768px) {
+        .formation-card {
+            flex-direction: column;
+        }
+
+        .formation-image {
+            margin: 10px 0 0 0;
+            max-width: 100%;
+            max-height: 200px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="formations-container">
+    <h1>Mes formations</h1>
+
+    <div class="formation-card">
+        <div class="formation-content">
+            <div class="formation-title">BUT Réseaux et Télécommunications</div>
+            <div class="formation-period">2025 - Présent | Université Jean-Monnet</div>
+            <div class="formation-description">
+                Formation en réseau, sécurité et télécommunications. Acquisition de compétences en administration réseau, cybersécurité, programmation et gestion de projets IT. Participation à des projets pratiques.
+            </div>
+        </div>
+        <img src="/images/universite_xyz.png" alt="Université XYZ" class="formation-image">
+    </div>
+
+    <div class="formation-card">
+        <div class="formation-content">
+            <div class="formation-title">Baccalauréat Général</div>
+            <div class="formation-period">2022 - 2025 | Lycée Léon Blum</div>
+            <div class="formation-description">
+                Spécialité Mathématiques, Numérique et Science de l'Informatique (Physique-Chimie).
+            </div>
+        </div>
+        <img src="/images/lycee_abc.png" alt="Lycée Blum" class="formation-image">
+    </div>
+
+    <!-- Formation 3 -->
+    <div class="formation-card">
+        <div class="formation-content">
+            <div class="formation-title">Brevet d'Initation à l'Aéronautique</div>
+            <div class="formation-period">2022 - 2023 | Lycée Léon Blum</div>
+            <div class="formation-description">
+                initiation aux bases de l’aéronautique, aviation civile et militaire, principes de vol, météorologie et sécurité aérienne.
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

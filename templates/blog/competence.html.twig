@@ -1,38 +1,77 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .competences-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .competences-container h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .competences-container h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .competences-container p {
+            font-size: clamp(1rem, 1vw, 1.25rem);
+            line-height: 1.8;
+            max-width: 80%;
+            margin: 0 auto 30px auto;
+            text-align: justify;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
-    <h1> Compétences RT1 </h1>
-    <h2> <br> Administrer </h2>
+<div class="competences-container">
+    <h1>Compétences RT1</h1>
+
+    <h2>Administrer</h2>
     <p>
-       {# ❌ - AC11.01	|	Maîtriser	les	lois	fondamentales	de	l’électricité	afin	d’intervenir	sur	des	équipements	de	réseaux	et	télécommunications <br>
+        {# ❌ - AC11.01	|	Maîtriser	les	lois	fondamentales	de	l’électricité	afin	d’intervenir	sur	des	équipements	de	réseaux	et	télécommunications <br>
         ❌ - AC11.02	|	Comprendre	l'architecture	et	les	fondements	des	systèmes	numériques,	les	principes	du	codage	de	l'information,	des	communications	et	de	l'Internet <br>
-        ❌ - AC11.03	|	Configurer	les	fonctions	de	base	du	réseau	local <br>
-        ❌ - AC11.04	|	Maîtriser	les	rôles	et	les	principes	fondamentaux	des	systèmes	d’exploitation	afin	d’interagir	avec	ceux-ci	pour	la	configuration	et	l'administration	des	réseaux	et	services	fournis <br>
-        ❌ - AC11.05	|	Identifier	les	dysfonctionnements	du	réseau	local	et	savoir	les	signaler <br>
-        ❌ - AC11.06	|	Installer	un	poste	client,	expliquer	la	procédure	mise	en	place <br>
-#}INSERER ICI ANALYSE REFLEXIVE sur compétence administrer
+        ❌ - AC11.03	|	Configurer	les	fonctions de base du réseau local <br>
+        ❌ - AC11.04	|	Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l'administration des réseaux et services fournis <br>
+        ❌ - AC11.05	|	Identifier les dysfonctionnements du réseau local et savoir les signaler <br>
+        ❌ - AC11.06	|	Installer un poste client, expliquer la procédure mise en place <br>
+        #}
+        INSERER ICI ANALYSE REFLEXIVE sur compétence administrer
     </p>
-    <h2><br> Connecter </h2>
-    <p> {#
+
+    <h2>Connecter</h2>
+    <p>
+        {# 
         ❌ - AC12.01  |   Mesurer, analyser et commenter les signaux <br>
         ❌ - AC12.02  |   Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur fonctionnement<br>
         ❌ - AC12.03  |   Déployer des supports de transmission<br>
         ❌ - AC12.04  |   Connecter les systèmes de ToIP<br>
         ❌ - AC12.05  |   Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur<br>
-    #}
-    INSERER ICI ANALYSE REFLEXIVE sur compétence Connecter
+        #}
+        INSERER ICI ANALYSE REFLEXIVE sur compétence Connecter
     </p>
-    <h2><br> Programmer </h2>
-    <p>{#
+
+    <h2>Programmer</h2>
+    <p>
+        {#
         ❌ - AC13.01  |   Utiliser un système informatique et ses outils<br>
         ❌ - AC13.02  |   Lire, exécuter, corriger et modifier un programme<br>
         ❌ - AC13.03  |   Traduire un algorithme dans un langage et pour un environnement donné<br>
         ❌ - AC13.04  |   Connaître l’architecture et les technologies d’un site Web<br>
         ❌ - AC13.05  |   Choisir les mécanismes de gestion de données adaptés au développement de l’outil et argumenter ses choix<br>
         ❌ - AC13.06  |   S’intégrer dans un environnement propice au développement et au travail collaboratif<br>
-    #}
-    INSERER ICI ANALYSE REFLEXIVE sur compétence Programmer
+        #}
+        INSERER ICI ANALYSE REFLEXIVE sur compétence Programmer
     </p>
 
-    {# <button onclick="window.location.href = 'http://127.0.0.1:8000/blog/competence2';">Compétences RT2</button> #} 
+    {# <button onclick="window.location.href = 'http://127.0.0.1:8000/blog/competence2';">Compétences RT2</button> #}
+</div>
 {% endblock %}
