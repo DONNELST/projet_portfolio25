@@ -3,11 +3,7 @@
 {% block stylesheets %}
 {{ parent() }}
 <style>
-    .formations-container {
-        max-width: 1000px;
-        margin: 50px auto;
-        padding: 0 20px;
-    }
+
 
     .formations-container h1 {
         font-size: clamp(3rem, 8vw, 5rem);
@@ -31,7 +27,7 @@
     .formation-image {
         max-width: 150px;
         max-height: 150px;
-        margin-left: auto; /* pousse l'image à droite */
+        margin-left: auto; 
         border-radius: 5px;
     }
 
@@ -73,7 +69,10 @@
 {% endblock %}
 
 {% block body %}
-<div class="formations-container">
+
+
+<div class="container py-5 formations-container">
+
     <h1>Mes formations</h1>
 
     <div class="formation-card">
@@ -81,10 +80,12 @@
             <div class="formation-title">BUT Réseaux et Télécommunications</div>
             <div class="formation-period">2025 - Présent | Université Jean-Monnet</div>
             <div class="formation-description">
-                Formation en réseau, sécurité et télécommunications. Acquisition de compétences en administration réseau, cybersécurité, programmation et gestion de projets IT. Participation à des projets pratiques.
+                Formation en réseau, sécurité et télécommunications. Acquisition de compétences
+                en administration réseau, cybersécurité, programmation et gestion de projets IT.
+                Participation à des projets pratiques.
             </div>
         </div>
-        <img src="/images/universite_xyz.png" alt="Université XYZ" class="formation-image">
+        <img src="/images/universite_xyz.png" alt="IUT Roanne" class="formation-image">
     </div>
 
     <div class="formation-card">
@@ -92,22 +93,24 @@
             <div class="formation-title">Baccalauréat Général</div>
             <div class="formation-period">2022 - 2025 | Lycée Léon Blum</div>
             <div class="formation-description">
-                Spécialité Mathématiques, Numérique et Science de l'Informatique (Physique-Chimie).
+                Spécialité Mathématiques, Numérique et Science de l'Informatique
+                (Physique-Chimie).
             </div>
         </div>
         <img src="/images/lycee_abc.png" alt="Lycée Blum" class="formation-image">
     </div>
 
-    <!-- Formation 3 -->
     <div class="formation-card">
         <div class="formation-content">
             <div class="formation-title">Brevet d'Initation à l'Aéronautique</div>
             <div class="formation-period">2022 - 2023 | Lycée Léon Blum</div>
             <div class="formation-description">
-                initiation aux bases de l’aéronautique, aviation civile et militaire, principes de vol, météorologie et sécurité aérienne.
+                initiation aux bases de l’aéronautique, aviation civile et militaire,
+                principes de vol, météorologie et sécurité aérienne.
             </div>
         </div>
     </div>
 
 </div>
+
 {% endblock %}

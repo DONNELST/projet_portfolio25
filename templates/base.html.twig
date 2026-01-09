@@ -6,132 +6,86 @@
     <title>{% block title %}e-Portfolio{% endblock %}</title>
 
     {% block stylesheets %}
-        {# Bootstrap Lux theme depuis CDN #}
         <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
-        {# CSS personnalisé via asset() pour Symfony #}
-        <link rel="stylesheet" href="{{ asset('app.css') }}">
-        <style>
-            /* Bouton fixe "A propos de moi" */
-            #backButton {
-                position: fixed;
-                bottom: 40px;
-                right: 40px;
-                padding: 10px 20px;
-                font-size: 2rem;
-                background-color: rgb(100, 175, 255);
-                color: black;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-            #backButton:hover {
-                background-color: #0056b3;
-            }
-
-            /* Structure de page */
-            body, html {
-                height: 100%;
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-            }
-
-            main {
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-            }
-
-            footer {
-                margin-top: auto;
-                padding: 20px;
-                background-color: #333;
-                color: white;
-                text-align: center;
-            }
-
-            footer p {
-                margin: 0;
-            }
-
-            a {
-                color: #f0f0f0;
-                text-decoration: none;
-            }
-
-            a:hover {
-                text-decoration: underline;
-            }
-        </style>
+        <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
     {% endblock %}
 
     {% block javascripts %}
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>
-<body>
 
-    {# Navbar Bootstrap #}
-    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="http://127.0.0.1:8000/blog/"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="http://127.0.0.1:8000/blog/">Home<span class="visually-hidden">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/blog/competence">Compétences RT1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/blog/formation">Formation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/blog/experience">Expériences professionnelles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/blog/formulaire">CV et Formulaire</a>
-                    </li>
-                </ul>
-            </div>
+<body class="d-flex flex-column min-vh-100">
+
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="http://127.0.0.1:8000/blog/"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarColor01" aria-controls="navbarColor01"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="http://127.0.0.1:8000/blog/">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/blog/competence">
+                        Compétences RT1
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/blog/formation">
+                        Formation
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/blog/experience">
+                        Expériences professionnelles
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/blog/formulaire">
+                        CV et Formulaire
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    {# Bouton fixe "A propos de moi" #}
-    <a href="http://127.0.0.1:8000/blog/aboutme">
-        <button id="backButton">A propos de moi</button>
+<div class="container position-fixed bottom-0 end-0 p-4 text-end">
+    <a href="http://127.0.0.1:8000/blog/aboutme" class="btn btn-primary btn-lg shadow">
+        A propos de moi
     </a>
+</div>
 
-    <main>
+<main class="flex-grow-1">
+    <div class="container py-4">
         {% block body %}{% endblock %}
-    </main>
+    </div>
+</main>
 
-<footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
-    <div class="footer-content" style="max-width: 900px; margin: 0 auto;">
-
-        <p>&copy; {{ "now"|date("Y") }} e-Portfolio - Tous droits réservés</p>
-
-        <p>
-            <a class="nav-link active" href="http://127.0.0.1:8000/blog/formulaire" style="color: #f0f0f0;">Mon CV</a>
+<footer class="bg-dark text-white py-4 mt-auto">
+    <div class="container text-center">
+        <p class="mb-2">&copy; {{ "now"|date("Y") }} e-Portfolio - Tous droits réservés</p>
+        <p class="mb-2">
+            <a class="nav-link d-inline text-white" href="http://127.0.0.1:8000/blog/formulaire">
+                Mon CV
+            </a>
         </p>
-
-        <p>
-            Email : <a style="color: #f0f0f0;">lucas.donne@etu.univ-st-etienne.fr</a><br>
-            Téléphone : <span style="color: #f0f0f0;">+33 6 51 60 25 80</span>
+        <p class="mb-2">
+            Email : <span>lucas.donne@etu.univ-st-etienne.fr</span><br>
+            Téléphone : <span>+33 6 51 60 25 80</span>
         </p>
-
-        <p style="font-size: 0.85rem; margin-top: 10px;">
-            Tout le contenu de ce site (textes, images, fichiers) est protégé par le droit d’auteur et ne peut être reproduit sans autorisation.
+        <p class="small mt-3 mb-0">
+            Tout le contenu de ce site est protégé par le droit d’auteur et ne peut être reproduit sans autorisation.
         </p>
-
     </div>
 </footer>
 
 </body>
 </html>
-
-

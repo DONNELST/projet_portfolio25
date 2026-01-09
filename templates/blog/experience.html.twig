@@ -3,11 +3,7 @@
 {% block stylesheets %}
 {{ parent() }}
 <style>
-    .experiences-container {
-        max-width: 1000px;
-        margin: 50px auto;
-        padding: 0 20px;
-    }
+ 
 
     .experiences-container h1 {
         font-size: clamp(3rem, 8vw, 5rem);
@@ -31,7 +27,7 @@
     .experience-image {
         max-width: 200px;
         max-height: 150px;
-        margin-left: auto; /* pousser l'image à droite */
+        margin-left: auto; 
         border-radius: 5px;
     }
 
@@ -66,18 +62,25 @@
 {% endblock %}
 
 {% block body %}
-<div class="experiences-container">
+
+
+<div class="container py-5 experiences-container">
+
     <h1>Mes expériences professionnelles</h1>
 
     <div class="experience-card">
         <div class="experience-content">
             <div class="experience-title">Stage d'observation - Alstom</div>
             <div class="experience-description">
-               J'ai pu suivre le directeur informatique du site d'Alstom Le Creusot lors de mon stage d'observation de 3ème, ce qui m'a permis surtout d'acquérir une bonne compréhension du fonctionnement, de l'organisation d'une entreprise 
-               ainsi que les différents services, leurs relations et leurs façons de travailler.
+                J'ai pu suivre le directeur informatique du site d'Alstom Le Creusot lors de mon
+                stage d'observation de 3ème, ce qui m'a permis surtout d'acquérir une bonne
+                compréhension du fonctionnement, de l'organisation d'une entreprise ainsi que
+                les différents services, leurs relations et leurs façons de travailler.
             </div>
         </div>
         <img src="/images/jpg_44-2.jpg" alt="Alstom" class="experience-image">
     </div>
+
 </div>
+
 {% endblock %}

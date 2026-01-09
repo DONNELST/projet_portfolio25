@@ -3,11 +3,6 @@
 {% block stylesheets %}
     {{ parent() }}
     <style>
-        .competences-container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
 
         .competences-container h1 {
             font-size: clamp(3rem, 8vw, 5rem);
@@ -32,7 +27,9 @@
 {% endblock %}
 
 {% block body %}
-<div class="competences-container">
+
+<div class="container py-5 competences-container">
+
     <h1>Compétences RT1</h1>
 
     <h2>Administrer</h2>
@@ -73,5 +70,7 @@
     </p>
 
     {# <button onclick="window.location.href = 'http://127.0.0.1:8000/blog/competence2';">Compétences RT2</button> #}
+
 </div>
+
 {% endblock %}
